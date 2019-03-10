@@ -6,7 +6,7 @@ class Main {
   public static void main(String[] argv) {
     Node head = null;
   
-    /*
+    // /*
     String filename = "ok.js";
     /*/
     String filename = "notok.js";
@@ -17,13 +17,12 @@ class Main {
     try {
       FileInputStream fis = new FileInputStream(new File(filename));
 
-      while (isValid && fis.available() > 0) {
+      while (fis.available() > 0) {
         char currentChar = (char) fis.read();
         currentCharIndex++;
 
         if (currentChar == '(' || currentChar == '{' || currentChar == '[') {
           head = new Node(currentChar, head);
-          continue;
         } else if (currentChar == ')' || currentChar == '}' || currentChar == ']') {
           if (
             head == null ||  
