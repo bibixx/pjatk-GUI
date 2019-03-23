@@ -3,7 +3,7 @@ class MyColor extends java.awt.Color implements Comparable<MyColor> {
     super(r, g, b);
   }
 
-  public int getSum() {
+  private int getSum() {
     return this.getRed() + this.getGreen() + this.getBlue();
   }
 
