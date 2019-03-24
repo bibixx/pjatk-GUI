@@ -15,14 +15,13 @@ class Person {
   public boolean equals(Object o) {
     Person p = (Person)o;
 
-    // return p.name.equals(this.name) && p.yearOfBirth == this.yearOfBirth;
-    return p.yearOfBirth == this.yearOfBirth;
+    return p.name.equals(this.name) && p.yearOfBirth == this.yearOfBirth;
   }
 
-  // @Override
-  // public int hashCode() {
-  //   return this.yearOfBirth;
-  // }
+  @Override
+  public int hashCode() {
+    return this.yearOfBirth;
+  }
 
   public String toString() {
     return "Name: " + this.name + "; born: " + this.yearOfBirth;

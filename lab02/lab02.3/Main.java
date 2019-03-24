@@ -13,7 +13,7 @@ class Main {
     System.out.println(list);
     System.out.println(set);
 
-    // System.out.println(Person.findInList(list, "Daniel", 1989));
+    System.out.println(Person.findInList(list, "Daniel", 1989));
     System.out.println(Person.findInSet(set, "Adam", 1989));
     System.out.println(Person.findInSet(set, "Daniel", 1989));
   }
