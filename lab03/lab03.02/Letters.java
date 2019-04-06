@@ -4,10 +4,12 @@ public class Letters implements Iterable<Thread> {
   int i;
   String text;
   ArrayList<Thread> tg;
+  Boolean shouldRun;
 
   public Letters(String text) {
     this.text = text;
     this.tg = new ArrayList<Thread>();
+    this.shouldRun = true;
 
     for (int i = 0; i < text.length(); i++) {
       String letter = Character.toString(text.charAt(i));
@@ -15,7 +17,7 @@ public class Letters implements Iterable<Thread> {
       this.tg.add(new Thread(
         () -> {
           try {
-            while (true) {
+            while (this.shouldRun) {
               System.out.print(letter);
               Thread.sleep(1000);
             }
@@ -35,9 +37,7 @@ public class Letters implements Iterable<Thread> {
   }
 
   public void stop() {
-    for (Thread t : this.tg) {
-      t.stop();
-    }
+    this.shouldRun = false;
   }
 
   @Override
