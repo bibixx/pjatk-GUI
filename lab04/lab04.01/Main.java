@@ -28,6 +28,8 @@ class Main {
       ));
     }
 
+    reader.close();
+
     System.out.println(
       Person.findAllCars(people)
     );
