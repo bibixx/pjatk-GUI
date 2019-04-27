@@ -5,6 +5,7 @@ class Main {
     SwingUtilities.invokeLater(() -> {
       new Window1();
       new Window2();
+      new Window3();
     });
   }
 }

@@ -1,3 +1,4 @@
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 
@@ -16,15 +17,28 @@ public class Window1 extends JFrame {
     this.setVisible(true);
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+    JPanel p0 = new JPanel();
+    p0.setLayout(new BorderLayout());
     JPanel p = new JPanel();
     p.setLayout(new GridLayout(0, 1));
 
-    JTextField tf1 = new JTextField();
-    tf1.setText("jTextField1");
-    JTextField tf2 = new JTextField();
-    tf2.setText("jTextField2");
-    JTextField tf3 = new JTextField();
-    tf3.setText("jTextField3");
+    JTextField tf1F = new JTextField();
+    tf1F.setText("jTextField1");
+    JPanel tf1 = new JPanel();
+    tf1.setLayout(new BorderLayout());
+    tf1.add(tf1F, BorderLayout.NORTH);
+
+    JTextField tf2F = new JTextField();
+    tf2F.setText("jTextField2");
+    JPanel tf2 = new JPanel();
+    tf2.setLayout(new BorderLayout());
+    tf2.add(tf2F, BorderLayout.NORTH);
+
+    JTextField tf3F = new JTextField();
+    tf3F.setText("jTextField3");
+    JPanel tf3 = new JPanel();
+    tf3.setLayout(new BorderLayout());
+    tf3.add(tf3F, BorderLayout.NORTH);
 
     p.add(tf1);
     p.add(tf2);
@@ -43,15 +57,25 @@ public class Window1 extends JFrame {
     for (int i = 1; i < 10; i++) {
       JButton b = new JButton();
       b.setText(String.format("B%2s", i).replace(' ', '0'));
+      
+      JPanel ptemp = new JPanel();
+      JPanel ptemp2 = new JPanel();
+      ptemp.setLayout(new BorderLayout());
+      ptemp2.setLayout(new BorderLayout());
 
-      p3.add(b);
+      ptemp.add(b, BorderLayout.NORTH);
+      ptemp2.add(ptemp, BorderLayout.CENTER);
+      p3.add(ptemp);
     }
 
     p2.add(p3);
-    p.add(p2);
+    // p.add(p2);
+
+    p0.add(p, BorderLayout.NORTH);
+    p0.add(p2, BorderLayout.CENTER);
 
     this.pack();
 
-    this.add(p);
+    this.add(p0);
   }
 }
