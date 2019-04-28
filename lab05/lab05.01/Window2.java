@@ -18,39 +18,33 @@ public class Window2 extends JFrame {
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     this.setLocation(512 + 10 * 1, 0);
 
-    JPanel p = new JPanel();
-    p.setLayout(new BorderLayout());
+    JPanel mainPanel = new JPanel(new BorderLayout());
     
-    JTextArea tf1 = new JTextArea();
-    tf1.setText("jTextArea1");
-    JTextArea tf2 = new JTextArea();
-    tf2.setText("jTextArea2");
-    JTextField tf3 = new JTextField();
-    tf3.setText("jTextField4");
+    JTextArea textArea1 = new JTextArea();
+    textArea1.setText("jTextArea1");
+    JTextArea textArea2 = new JTextArea();
+    textArea1.setText("jTextArea2");
+    JTextArea textArea3 = new JTextArea();
+    textArea1.setText("jTextArea3");
 
-    p.add(tf1, BorderLayout.WEST);
-    p.add(tf2, BorderLayout.EAST);
-    p.add(tf3, BorderLayout.SOUTH);
+    mainPanel.add(textArea1, BorderLayout.WEST);
+    mainPanel.add(textArea2, BorderLayout.EAST);
+    mainPanel.add(textArea3, BorderLayout.SOUTH);
 
-    JPanel p3 = new JPanel();
-    p3.setLayout(new GridLayout(3, 2));
+    JPanel buttonsPanel = new JPanel(new GridLayout(3, 2));
     for (int i = 1; i < 13; i++) {
-      JButton b = new JButton();
-      b.setText(String.format("B%2s", i).replace(' ', '0'));
+      JButton currentButton = new JButton();
+      currentButton.setText(String.format("B%2s", i).replace(' ', '0'));
 
-      JPanel ptemp = new JPanel();
-      JPanel ptemp2 = new JPanel();
-      ptemp.setLayout(new BorderLayout());
-      ptemp2.setLayout(new BorderLayout());
+      JPanel ptemp = new JPanel(new BorderLayout());
 
-      ptemp.add(b, BorderLayout.NORTH);
-      ptemp2.add(ptemp, BorderLayout.CENTER);
-      p3.add(ptemp);
+      ptemp.add(currentButton, BorderLayout.NORTH);
+      buttonsPanel.add(ptemp);
     }
 
-    p.add(p3, BorderLayout.CENTER);
+    mainPanel.add(buttonsPanel, BorderLayout.CENTER);
 
-    this.add(p);
+    this.add(mainPanel);
     this.pack();
   }
 }
