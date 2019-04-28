@@ -36,10 +36,10 @@ public class Window2 extends JFrame {
       JButton currentButton = new JButton();
       currentButton.setText(String.format("B%2s", i).replace(' ', '0'));
 
-      JPanel ptemp = new JPanel(new BorderLayout());
+      JPanel buttonContainer = new JPanel(new BorderLayout());
 
-      ptemp.add(currentButton, BorderLayout.NORTH);
-      buttonsPanel.add(ptemp);
+      buttonContainer.add(currentButton, BorderLayout.NORTH);
+      buttonsPanel.add(buttonContainer);
     }
 
     mainPanel.add(buttonsPanel, BorderLayout.CENTER);

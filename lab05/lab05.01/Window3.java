@@ -19,75 +19,61 @@ public class Window3 extends JFrame {
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     this.setLocation(512 * 2 + 10 * 2, 0);
 
-    JPanel p = new JPanel();
-    p.setLayout(new BorderLayout());
+    JPanel mainPanel = new JPanel(new BorderLayout());
 
-    JTextArea ta1 = new JTextArea();
-    ta1.setText("jTextArea1");
-    JPanel ta1p = new JPanel();
-    ta1p.setLayout(new BorderLayout());
-    ta1p.add(ta1, BorderLayout.NORTH);
+    JTextArea textArea1 = new JTextArea();
+    textArea1.setText("jTextArea1");
 
-    p.add(ta1, BorderLayout.CENTER);
+    mainPanel.add(textArea1, BorderLayout.CENTER);
 
-    JPanel p2 = new JPanel();
-    p2.setLayout(new GridLayout(0, 3));
+    JPanel southPanel = new JPanel();
+    southPanel.setLayout(new GridLayout(0, 3));
 
-    JPanel p3 = new JPanel();
-    p3.setLayout(new GridLayout(2, 2));
+    JPanel buttonsPanel1 = new JPanel();
+    buttonsPanel1.setLayout(new GridLayout(2, 2));
     for (int i = 1; i < 5; i++) {
-      JButton b = new JButton();
-      b.setText(String.format("B%2s", i).replace(' ', '0'));
-
+      JButton currentButton = new JButton();
+      currentButton.setText(String.format("B%2s", i).replace(' ', '0'));
       
-      JPanel ptemp = new JPanel();
-      JPanel ptemp2 = new JPanel();
-      ptemp.setLayout(new BorderLayout());
-      ptemp2.setLayout(new BorderLayout());
+      JPanel buttonContainer = new JPanel(new BorderLayout());
 
-      ptemp.add(b, BorderLayout.NORTH);
-      ptemp2.add(ptemp, BorderLayout.CENTER);
-      p3.add(ptemp);
+      buttonContainer.add(currentButton, BorderLayout.NORTH);
+      buttonsPanel1.add(buttonContainer);
     }
 
-    JPanel p4 = new JPanel();
-    p4.setLayout(new GridLayout(2, 2));
+    JPanel buttonsPanel2 = new JPanel();
+    buttonsPanel2.setLayout(new GridLayout(2, 2));
     for (int i = 5; i < 9; i++) {
-      JButton b = new JButton();
-      b.setText(String.format("B%2s", i).replace(' ', '0'));
-      
-      JPanel ptemp = new JPanel();
-      JPanel ptemp2 = new JPanel();
-      ptemp.setLayout(new FlowLayout());
-      ptemp2.setLayout(new BorderLayout());
+      JButton currentButton = new JButton();
+      currentButton.setText(String.format("B%2s", i).replace(' ', '0'));
 
-      ptemp.add(b, BorderLayout.NORTH);
-      ptemp2.add(ptemp, BorderLayout.CENTER);
-      p4.add(ptemp);
+      JPanel buttonContainer = new JPanel(new BorderLayout());
+
+      buttonContainer.add(currentButton, BorderLayout.NORTH);
+      buttonsPanel2.add(buttonContainer);
     }
     
-    
-    JPanel p5 = new JPanel();
-    p5.setLayout(new GridLayout(0, 1)); 
+    JPanel textFieldsPanel = new JPanel();
+    textFieldsPanel.setLayout(new GridLayout(0, 1)); 
 
-    JTextField tf1 = new JTextField();
-    tf1.setText("jTextField1");
-    JTextField tf2 = new JTextField();
-    tf2.setText("jTextField2");
-    JTextField tf3 = new JTextField();
-    tf3.setText("jTextField3");
+    JTextField textField1 = new JTextField();
+    textField1.setText("jTextField1");
+    JTextField textField2 = new JTextField();
+    textField2.setText("jTextField2");
+    JTextField textField3 = new JTextField();
+    textField3.setText("jTextField3");
 
-    p5.add(tf1);
-    p5.add(tf2);
-    p5.add(tf3);
+    textFieldsPanel.add(textField1);
+    textFieldsPanel.add(textField2);
+    textFieldsPanel.add(textField3);
 
-    p2.add(p3);
-    p2.add(p5);
-    p2.add(p4);
+    southPanel.add(buttonsPanel1);
+    southPanel.add(textFieldsPanel);
+    southPanel.add(buttonsPanel2);
 
-    p.add(p2, BorderLayout.SOUTH);
+    mainPanel.add(southPanel, BorderLayout.SOUTH);
 
-    this.add(p);
+    this.add(mainPanel);
     this.pack();
   }
 }
