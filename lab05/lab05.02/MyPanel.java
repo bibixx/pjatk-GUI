@@ -13,7 +13,8 @@ public class MyPanel extends JPanel {
   public void paintComponent(Graphics g) {
     float value = (float)slider.getValue() / 100;
 
-    g.setColor(Color.BLUE);
+    g.setColor(new Color(0, (int)(255 * value), 0));
+
     int s = (int)(Math.min(getWidth(), getHeight()) * value);
     g.fillRect(
       getWidth() / 2 - s / 2,
