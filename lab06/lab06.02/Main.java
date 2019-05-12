@@ -22,8 +22,8 @@ public class Main extends JFrame {
 
   public Main(){
     JPanel panel = new JPanel(new BorderLayout());
-    DefaultListModel<Person> lm = new DefaultListModel<Person>();
-    JList<Person> list = new JList<Person>(lm);
+    DefaultListModel<Person> listModel = new DefaultListModel<Person>();
+    JList<Person> list = new JList<Person>(listModel);
     list.setCellRenderer(new PersonRenderer());
     
     JScrollPane listScroller = new JScrollPane(list);
@@ -32,7 +32,6 @@ public class Main extends JFrame {
     
     JPanel optionsPanel = new JPanel(new GridLayout(0, 1));
 
-    // setTitledBorder
     JSlider heightSlider = new JSlider(100, 200, 150);
     heightSlider.setMajorTickSpacing(10);
     heightSlider.setMinorTickSpacing(1);
@@ -88,7 +87,7 @@ public class Main extends JFrame {
         return;
       }
 
-      lm.addElement(new Person(height, weight, name, size));
+      listModel.addElement(new Person(height, weight, name, size));
 
       heightSlider.setValue(150);
       weightSlider.setValue(80);
