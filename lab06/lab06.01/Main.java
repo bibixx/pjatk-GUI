@@ -1,7 +1,6 @@
 import javax.swing.*;
 
 import java.awt.*;
-import java.util.ArrayList;
 import java.util.regex.*;
 
 public class Main extends JFrame {

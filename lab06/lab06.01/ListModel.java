@@ -27,7 +27,10 @@ public class ListModel extends AbstractListModel<String> {
 
   public boolean remove(String stringToRemove) {
     boolean removed = this.list.removeIf(s -> s.equals(stringToRemove));
-    this.fireIntervalRemoved(this, 0, this.getSize());
+    if (removed) {
+      this.fireIntervalRemoved(this, 0, this.getSize());
+    }
+
     return removed;
   }
 
