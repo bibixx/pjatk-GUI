@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.filechooser.FileSystemView;
 
 public class Window extends JFrame {
@@ -48,6 +49,8 @@ public class Window extends JFrame {
     });
 
     JFileChooser fileChooser = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
+    FileNameExtensionFilter filter = new FileNameExtensionFilter("TEXT FILES", "txt", "text");
+    fileChooser.setFileFilter(filter);
 
     fileButton.addActionListener(e -> {
       int returnValue = fileChooser.showOpenDialog(null);
